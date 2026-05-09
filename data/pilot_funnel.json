@@ -1,0 +1,23 @@
+{
+  "sample_size": 10000,
+  "english": 4648,
+  "at_least_4_turns": 2430,
+  "repair_signal_hit": 3,
+  "rate_per_4turn_english": 0.123,
+  "top_phrases": [
+    [
+      "this is wrong",
+      1
+    ],
+    [
+      "the question was",
+      1
+    ],
+    [
+      "useless",
+      1
+    ]
+  ],
+  "source": "allenai/WildChat-1M (streamed sample)",
+  "stage": "A (regex only) \u2014 no LLM judge yet"
+}
