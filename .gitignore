@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+.env
+.env.local
+.DS_Store
+.idea/
+.vscode/
+
+# Big or sensitive files we don't want in git
+data/raw/
+data/wildchat_full/
+data/lmsys_full/
+data/replays_unfiltered.jsonl
+data/*.parquet
+*.zip
+*.tar.gz
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db

@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "The Intent Gap: A Taxonomy of Real-User Failure Modes in Frontier AI Agents"
+message: "If you use this work, please cite it as below."
+type: dataset
+authors:
+  - given-names: Kanupriya
+    family-names: Yakhmi
+    affiliation: Independent
+repository-code: "https://github.com/<USER>/intent-gap-study"
+abstract: >
+  An open corpus, filter pipeline, and taxonomy for surfacing user-grounded
+  failure modes in frontier AI agents from 1M+ public conversations,
+  triangulated against the global research literature and documented
+  production incidents.
+keywords:
+  - LLM evaluation
+  - AI agents
+  - dialogue breakdown
+  - conversational repair
+  - intent gap
+  - frontier model evaluation
+license: MIT
+license-url: "https://opensource.org/license/mit"
+date-released: 2026-XX-XX

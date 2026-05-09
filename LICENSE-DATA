@@ -1,0 +1,13 @@
+The dataset released in `data/intent_gap_corpus.jsonl` (and any derived files
+in the `data/` directory) is licensed under the Creative Commons
+Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0).
+
+This is consistent with the source dataset licenses (WildChat is released
+under AI2 ImpACT Licenses with non-commercial terms; LMSYS-Chat-1M is released
+for research use). Re-distribution of unmodified source-corpus rows is not
+permitted; the released corpus contains only filtered, anonymized derivative
+rows.
+
+Full license text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+To cite this dataset, see CITATION.cff in the repo root.
