@@ -1,0 +1,132 @@
+{
+  "sample_size": 50000,
+  "english": 23797,
+  "single_exchange_abandoned": 12577,
+  "at_least_4_turns": 11220,
+  "repair_signal_hit": 432,
+  "rate_per_4turn_english": 3.8503,
+  "top_phrases": [
+    [
+      "i meant",
+      92
+    ],
+    [
+      "can you please",
+      62
+    ],
+    [
+      "try again",
+      53
+    ],
+    [
+      "useless",
+      20
+    ],
+    [
+      "hmm",
+      17
+    ],
+    [
+      "why did you",
+      17
+    ],
+    [
+      "do it again",
+      15
+    ],
+    [
+      "no",
+      13
+    ],
+    [
+      "but i need",
+      12
+    ],
+    [
+      "nope",
+      11
+    ],
+    [
+      "not quite",
+      10
+    ],
+    [
+      "why are you",
+      9
+    ],
+    [
+      "wait",
+      9
+    ],
+    [
+      "my question is",
+      7
+    ],
+    [
+      "you missed",
+      6
+    ],
+    [
+      "this is wrong",
+      5
+    ],
+    [
+      "that is wrong",
+      4
+    ],
+    [
+      "no, i meant",
+      4
+    ],
+    [
+      "that is incorrect",
+      4
+    ],
+    [
+      "wait,",
+      4
+    ],
+    [
+      "can you just",
+      4
+    ],
+    [
+      "but that's not",
+      3
+    ],
+    [
+      "you dont understand",
+      3
+    ],
+    [
+      "i asked for",
+      3
+    ],
+    [
+      "wrong answer",
+      3
+    ],
+    [
+      "that's wrong",
+      2
+    ],
+    [
+      "the question was",
+      2
+    ],
+    [
+      "do that again",
+      2
+    ],
+    [
+      "that's incorrect",
+      2
+    ],
+    [
+      "that's not right",
+      2
+    ]
+  ],
+  "source": "allenai/WildChat-1M (streamed sample, v2 filter)",
+  "stage": "A v2 (expanded regex, all-turn scan)"
+}
