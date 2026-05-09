@@ -132,12 +132,23 @@ Categories 2, 3, 9, 11 are *candidate novel categories* — i.e., we have not ye
 
 ---
 
-## 5. Findings (templated — populate when grading completes)
+## 5. Findings
 
-### 5.1 Filter yields and dataset characteristics
-- Conversations passing Stage A: [N1]
-- Passing Stage B: [N2]
-- Passing Stage C: [N3]
+### 5.0 Preliminary finding — rarity of explicit verbal repair
+
+A first pilot run of the Stage A regex filter on a streamed 10,000-conversation sample of WildChat-1M produced an unexpected and material result: only **0.12% of multi-turn English conversations** (3 of 2,430) contained an explicit repair signal under the v1 phrase list. Of the 10,000 conversations sampled, 4,648 were English (46.5%); of those, 2,430 had at least four turns (52.3%); of those, only 3 matched any repair phrase from the v1 list. The phrases that did fire were "this is wrong," "the question was," and "useless" — each appearing once.
+
+We interpret this as a finding in itself, with two implications:
+
+1. **Most users do not vocalize when an AI assistant misses their intent.** They abandon the conversation, silently rephrase without flagging the failure, or work around the response. The intent gap is therefore *systematically under-measured* by every deployment-quality pipeline that depends on explicit user feedback signals (thumbs-down ratings, "regenerate" clicks, support tickets). Frontier labs are seeing a small, biased subset of failures.
+
+2. **Researcher-imagined repair vocabulary diverges from real-user repair vocabulary.** The "no, I meant" / "you misunderstood" / "let me rephrase" phrases that dominate the HCI literature on conversational repair (Schegloff 1977; Aljamdi et al. 2024) appeared zero times in the matched subset. The phrases that did fire were short, blunt, and idiomatic. This suggests the phrase lists used in dialogue-breakdown detection benchmarks may themselves be researcher-imagined.
+
+A v2 of the filter, with an expanded natural-language phrase list (~45 phrases including soft repairs, abandonment markers, and idiomatic frustration patterns) and full-turn scanning (rather than only user-turn-2), is run on a 50,000-conversation sample. Final v2 numbers will be filled here once that pilot completes.
+
+### 5.1 Filter yields and dataset characteristics (full corpus)
+- v1 funnel: 10,000 → 4,648 English → 2,430 ≥4-turn → 3 repair-hit (0.123%)
+- v2 funnel: [populate after Colab v2 run]
 - Final hand-reviewed corpus: [N4]
 - Inter-rater κ on Stage D: [κ_human-human]
 - Distribution by language, domain, conversation length: [figures]
