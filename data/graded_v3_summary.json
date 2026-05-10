@@ -1,0 +1,19 @@
+{
+  "n_graded": 50,
+  "verdicts": {
+    "A": 15,
+    "PARSE_ERR": 1,
+    "C": 2,
+    "D": 1,
+    "ERR": 31
+  },
+  "categories": {
+    "specificity-mismatch": 4,
+    "goal-collapse": 5,
+    "memory-state-failure": 2,
+    "implicit-context-blindness": 4
+  },
+  "judge": "gemini-2.5-flash",
+  "sdk": "google-genai==1.66.0",
+  "note": "Stage C LLM-as-judge auto-labeling. Hand-spot-check a 30-conv subset for inter-rater \u03ba."
+}
