@@ -8,19 +8,18 @@
    - Don't add a README, .gitignore, or license — we already have ours
 4. Configure git with your name/email (one time per machine):
    ```
-   git config --global user.name "Kanupriya Yakhmi"
-   git config --global user.email "kanupriyayakhmi@gmail.com"
+   git config --global user.name "Your Name"
+   git config --global user.email "you@example.com"
    ```
 
 ## First push
 
-Open PowerShell and paste these commands in order. Replace `YOUR-USERNAME` with your real GitHub username.
+Open PowerShell, navigate to the repo folder, and run:
 
 ```
-cd "C:\Users\KP\Documents\Claude\Projects\Startup defensible moat\intent-gap-study"
 git init
 git add .
-git commit -m "Initial scaffold: scope, paper draft, lit review, code stubs, outreach"
+git commit -m "Initial scaffold: scope, paper draft, lit review, code stubs"
 git branch -M main
 git remote add origin https://github.com/YOUR-USERNAME/intent-gap-study.git
 git push -u origin main
@@ -30,10 +29,9 @@ If `git push` asks for a password, use a GitHub Personal Access Token, not your 
 
 ## Pushing edits later
 
-After you've made changes:
+After making changes:
 
 ```
-cd "C:\Users\KP\Documents\Claude\Projects\Startup defensible moat\intent-gap-study"
 git add .
 git commit -m "describe what you changed"
 git push
