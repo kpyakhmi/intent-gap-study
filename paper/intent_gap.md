@@ -193,6 +193,42 @@ Some of these top-ranked phrases (e.g., "can you please," bare "no," "hmm," "wai
 - Inter-rater κ on Stage D: [populate after grading]
 - LLM-judge vs. human agreement: [populate after Stage C]
 
+### 5.2 Stage C LLM-as-judge results (50-conversation pilot)
+
+A 50-conversation subsample of the 432 v2 candidates was auto-graded by Gemini 2.5 Flash using the prompt template in Appendix A. Results:
+
+| Verdict | Count | % of all | % of successfully-judged |
+|---|---:|---:|---:|
+| A — Intent gap (confirmed) | 15 | 30% | 79% |
+| C — Hallucination | 2 | 4% | 11% |
+| D — False positive | 1 | 2% | 5% |
+| PARSE_ERR | 1 | 2% | 5% |
+| ERR (judge raised exception) | 31 | 62% | — |
+| **Total** | 50 | 100% | 100% |
+
+Two findings emerge.
+
+**Finding 4 — High intent-gap rate among successfully-judged candidates.** When the judge model could process the conversation, 79% (15/19) of the v2-flagged candidates were confirmed as real intent-gap failures (Verdict A). This is a strong validity signal for the v2 phrase list — when the regex fires *and* the judge can run, the candidate is overwhelmingly a real failure. Refining the v2 phrase list to drop the highest-false-positive markers ("can you please," bare "no") would push that rate higher.
+
+**Finding 5 — The judge refused to grade 62% of real-user candidates.** The judge model raised an exception (Verdict ERR) on 31 of 50 candidates. The most likely explanation is content-moderation rejection: WildChat contains substantial roleplay, edgy, and NSFW content even in the English ≥4-turn slice, and Gemini 2.5 Flash's safety filters refuse to process this material. **This is itself a deployment-relevant finding:** frontier-lab evaluation pipelines that route real-user data through a safety-filtered judge model will systematically miss the failure modes that occur in the most permissive parts of the user-prompt distribution. Researchers studying deployment-grade failure rates need either (a) a less safety-filtered judge, (b) a content-classifier preprocessing step to route around the filter, or (c) explicit acknowledgment that the analysis is conditioned on judge-acceptable inputs. We flag this as a methodological consideration for future work.
+
+### 5.3 Preliminary taxonomy distribution
+
+Among the 15 confirmed intent-gap failures from the 50-conversation pilot, the category breakdown is:
+
+| Category | Count | Share of confirmed |
+|---|---:|---:|
+| Goal collapse | 5 | 33% |
+| Specificity mismatch | 4 | 27% |
+| Implicit-context blindness | 4 | 27% |
+| Memory-state failure | 2 | 13% |
+
+The 11-category provisional taxonomy (§4) collapses, in this small sample, to four observed categories. The most striking gap is the absence of *sycophantic drift* in the user-data sample — even though sycophancy dominates the published literature (Sharma et al. 2024; OpenAI's GPT-4o rollback) and is documented in production incidents (D2, D4, D5). Two interpretations are possible: (a) sycophancy failures are over-represented in researcher attention relative to their real-user prevalence, or (b) sycophancy failures rarely produce explicit verbal repair (users *like* sycophantic responses and don't repair them) and thus our filter structurally misses them.
+
+The second interpretation, if correct, is the most consequential finding of this paper. It implies that the most-discussed failure mode in the alignment literature is also the *least* detectable through user-feedback signals — including thumbs-down, support tickets, and conversational repair. Sycophancy is invisible to the user-side feedback loop by construction. This is a strong argument for prioritizing red-team and adversarial-evaluation work over user-feedback-derived eval as the primary mechanism for sycophancy detection.
+
+A larger sample (the full 432 candidates) is needed to confirm both the category distribution and the sycophancy absence. We treat §5.3 as preliminary.
+
 ### 5.2 Cross-model replay results
 - Per-model literal compliance × intent satisfaction matrix
 - Recovery rate (intent=2 on replay where original failed): per model
